@@ -1,1 +1,5 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=16380144&assignment_repo_type=AssignmentRepo)
+# MILESTONE 0: AI DISCLOSURE FORM
+- Simon : [Link to AI Usage Disclosure MS Form](https://github.com/CMPT-276-FALL-2024/project-17-sunsets/blob/main/docs/ai-disclosure/M0_AI_Declaration_Form_%20Simon_Doan_301455974.pdf)
+- Chaitanya : [Link to AI Usage Disclosure MS Form](https://github.com/CMPT-276-FALL-2024/project-17-sunsets/blob/main/docs/ai-disclosure/M0_AI_Declaration_Chaitanya_Mittal_301584364.pdf)
+- Nur Ameer : [Link to AI Usage Disclosure MS Form](https://github.com/CMPT-276-FALL-2024/project-17-sunsets/blob/main/docs/ai-disclosure/P0_AI_Declaration_Nur%20Ameer_Nur%20Saidy_301575157.pdf)
+- Yizhang Zhu: [Link to AI Usage Disclosure MS Form](https://github.com/CMPT-276-FALL-2024/project-17-sunsets/blob/main/docs/ai-disclosure/M0_AI_Declaration_Yizhang_Zhu_301571258.pdf)
