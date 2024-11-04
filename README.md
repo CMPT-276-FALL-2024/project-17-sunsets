@@ -7,3 +7,6 @@
 
 ## Project Proposal 
 [Link to the Project Proposal](/docs/proposal/Milestone%200%20Proposal.pdf)
+
+# MILESTONE 1: AI DISCLOSURE FORM 
+- Simon : [Link to AI Usage Disclosure MS Form](/docs/ai-disclosure/M1/M1_AI_Declaration_Form_Simon_Doan_301455974.pdf)
