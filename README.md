@@ -13,3 +13,6 @@
 - Nur Ameer : [Link to AI Usage Disclosure MS Form](https://github.com/CMPT-276-FALL-2024/project-17-sunsets/blob/main/docs/ai-disclosure/M1/M1_AI_Declaration_Nur%20Ameer_Nur%20Saidy_301575157.pdf)
 - Yizhang Zhu: [Link to AI Usage Disclosure MS Form](docs/ai-disclosure/M1/M1_AI_Declaration_Yizhang_Zhu_301571258.pdf)
 - Chaitanya : [Link to AI Usage Discloure MS Form](https://github.com/CMPT-276-FALL-2024/project-17-sunsets/blob/main/docs/ai-disclosure/M1/M1_AI_Declaration_Chaitanya_Mittal_301584364.pdf)
+
+## Milestone 1
+[Link to the Milestone 1](https://github.com/CMPT-276-FALL-2024/project-17-sunsets/blob/main/docs/proposal/CMPT%20276-M1.pdf)
