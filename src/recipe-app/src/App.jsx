@@ -1,13 +1,15 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import Header from './Header.jsx';
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  return (
+  return(
     <>
-     HI
+      <Header></Header>
+      
+
     </>
-  )
+  );
 }
 
 export default App
