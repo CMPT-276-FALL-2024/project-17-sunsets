@@ -10,6 +10,7 @@ export const getRecipes= async (query) =>{
         //Only returns us the id, title, and id
         const res = await axios.get(`${API_URL}/complexSearch?apiKey=${API_KEY}&query=${query}&number=2`)
         const recipes = res.data.results; 
+        console.log(recipes)
         return recipes;
 
       
@@ -35,7 +36,7 @@ export const getRecipes= async (query) =>{
 
 export const getRecipeInfo= async (recipeId) => {
     try {
-      const res = await axios.get(`${API_URL}/${recipeId}/information?apiKey=${API_KEY}`);
+      const res = await axios.get(`${API_URL}/${recipeId}/information?apiKey=${API_KEY}&includeNutrition=true`);
       return res.data; 
     } catch (err) {
       console.error('Error getting recipe details', err);
