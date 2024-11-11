@@ -1,4 +1,4 @@
-import { getRecipes } from "./RecipeModel";
+import { getRecipeInfo, getRecipes } from "./RecipeModel";
 
 //gets the recipes from the model
 export const processRecipes = async (query) => {
@@ -9,3 +9,11 @@ export const processRecipes = async (query) => {
     }
 };
 
+export const processRecipeInfo = async (recipeId) => {
+    try {
+      const recipeDetails = await getRecipeInfo(recipeId);
+      return recipeDetails;
+    } catch (err) {
+      console.error('Error in processRecipeInfo', err);
+    }
+  };

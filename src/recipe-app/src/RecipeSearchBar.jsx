@@ -4,37 +4,32 @@ import { processRecipes } from "./RecipeController";
 
 function RecipeSearchBar({ setRecipes }) {
   const [query, setQuery] = useState("");
-  const [loading, setLoading] = useState(false);
+ 
 
-  const handleSearch = async (e) => {
+  const handleSearchBar = async (e) => {
     e.preventDefault();
-    setLoading(true);
+ 
     try {
       const recipes = await processRecipes(query); //Call the controller to get recipes
     setRecipes(recipes);  
- 
     } catch (error) {
-      console.error("Error fetching recipes:", error);
-    } finally {
-      setLoading(false);
+      console.error("Error fetching recipes", error);
     }
   };
   
   return (
     <div>
-      <form onSubmit={handleSearch}>
-        <input
-          type="text"
-          className="search-bar"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search"
-        />
-        <button type="submit" disabled={loading}>
-          {loading ? "Searching..." : "Search"}
-        </button>
-      </form>
-    </div>
+    <form onSubmit={handleSearchBar}>
+      <input
+        type="text"
+        className="search-bar"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder="Search"
+      />
+      <button type="submit">Search</button>
+    </form>
+  </div>
   );
 }
 
