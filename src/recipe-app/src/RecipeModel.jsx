@@ -1,5 +1,6 @@
 const API_URL = 'https://api.spoonacular.com/recipes';
-const API_KEY = process.env.REACT_APP_SPOONACULAR_API_KEY;
+//const API_KEY = process.env.REACT_APP_SPOONACULAR_API_KEY;
+
 
 import axios from 'axios';
 
@@ -7,7 +8,8 @@ import axios from 'axios';
 export const getRecipes= async (query) =>{
     try{
         const res = await axios.get(`${API_URL}/complexSearch?apiKey=${API_KEY}&query=${query}`)
-        return res.data;
+        //console.log(res.data.results);
+        return res.data.results;
     }catch(err){
         console.error('Error getting recipes:', err);
         res.status(500).json({ err: 'Internal server error' });
@@ -23,7 +25,6 @@ export const loadSavedRecipes= () => {
         return [];
     }
 }
-
 
 export const saveRecipe= (recipe) => {
     try {
