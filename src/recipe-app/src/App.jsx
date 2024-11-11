@@ -9,7 +9,6 @@ function App() {
 
   return(
     <>
-      Hi
       <Navbar />
       <Banner />
       <MealList />
