@@ -10,15 +10,16 @@ function RecipeSearchBar({ setRecipes }) {
     e.preventDefault();
     setLoading(true);
     try {
-      const recipes = await processRecipes(query);
-      setRecipes(recipes.results);
-      console.log(recipes);
+      const recipes = await processRecipes(query); //Call the controller to get recipes
+    setRecipes(recipes);  
+ 
     } catch (error) {
       console.error("Error fetching recipes:", error);
     } finally {
       setLoading(false);
     }
   };
+  
   return (
     <div>
       <form onSubmit={handleSearch}>
