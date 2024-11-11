@@ -1,13 +1,19 @@
 import { useState } from 'react';
-import Header from './Header.jsx';
+import Navbar from './components/Navbar.jsx';
+import Banner from './components/Banner.jsx';
+import MealList from './components/MealList.jsx';
+import Footer from './components/Footer.jsx';
+import './index.css'
 
 function App() {
 
   return(
     <>
-      <Header></Header>
-      
-
+      Hi
+      <Navbar />
+      <Banner />
+      <MealList />
+      <Footer />
     </>
   );
 }
