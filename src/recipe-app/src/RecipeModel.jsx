@@ -4,7 +4,7 @@ const API_KEY = 'cad81180b29e485db3d1362ab06edf94';
 
 import axios from 'axios';
 
-export const getRecipes = async (query, number = 30, ingredient = '') => {
+export const getRecipes = async (query, number = 3, ingredient = '') => {
     try {
         const res = await axios.get(`${API_URL}/complexSearch`, {
             params: {

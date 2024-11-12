@@ -4,9 +4,14 @@ import React, { useState } from 'react';
 const SearchBar = ({ onSearch, page }) => {
   const [query, setQuery] = useState('');
 
-  const handleSearch = () => {
+  const handleInputChange = (e) => {
+    setQuery(e.target.value);
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault(); // Prevent default form submission behavior
     if (onSearch) {
-      onSearch(query);
+      onSearch(query); // Trigger the search with the input value
     }
   };
 
@@ -15,19 +20,19 @@ const SearchBar = ({ onSearch, page }) => {
   const magnifierClass = page === 'home' ? 'home-magnifier' : 'recipe-magnifier';
 
   return (
-    <div className={containerClass}>
+    <form onSubmit={handleSearch} className={containerClass}>
       <span className={magnifierClass}>
         <i className="fa-solid fa-magnifying-glass magnifier"> </i>
       </span>
       <input
         type="text"
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={handleInputChange}
         placeholder="Search"
         className={inputClass}
       />
-      <button onClick={handleSearch} style={{ display: 'none' }} />
-    </div>
+      <button type="submit" style={{ display: 'none' }} />
+    </form>
   );
 };
 
