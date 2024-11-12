@@ -1,6 +1,6 @@
 const API_URL = 'https://api.spoonacular.com/recipes';
 //const API_KEY = process.env.REACT_APP_SPOONACULAR_API_KEY;
-const API_KEY = '';
+const API_KEY = 'cad81180b29e485db3d1362ab06edf94';
 
 import axios from 'axios';
 
