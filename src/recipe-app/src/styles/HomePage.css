@@ -1,0 +1,296 @@
+/* Reset and Base Styling */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.page-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* Header, main content, footer */
+  min-height: 100vh;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content if there is minimal content */
+  flex-grow: 1; /* This makes the content area expand */
+}
+
+:root {
+  --tenne-tawny: #c56a31;
+  --tenne-tawny-dark: #4e1d02;
+}
+
+body {
+  font-weight: 300;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  background: rgb(230, 224, 224);
+}
+
+/* Navbar Styling */
+.home-navbar {
+  background-color: var(--tenne-tawny-dark);
+  padding: 0 5%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+.home-menu-bar {
+  margin-top: 0.8rem;
+  margin-right: 1rem;
+  color: #f6f3f3;
+  cursor: pointer;
+}
+
+.home-navdiv {
+  display: flex;
+  gap: 10px;
+}
+
+.home-navdiv a {
+  font-size: 1rem;
+  color: #f6f3f3;
+  font-weight: 500;
+  transition: 0.4s ease;
+  margin: 10px;
+  padding: 0.2rem;
+}
+
+.home-navdiv a:hover,
+.home-navdiv a.home-active {
+  background-color: #FFD700;
+  color: #4B3621;
+  border-radius: 20%;
+}
+
+.home-profile-icon {
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  padding-top: 0.5rem;
+  margin-left: auto;
+}
+
+/* Text Styling */
+.home-text {
+  opacity: 0.8;
+}
+
+/* Banner Styling */
+.home-banner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.home-banner img {
+  width: 2000px;
+  height: 72vh;
+}
+
+.home-banner .home-welcome {
+  position: absolute;
+  top: 38%;
+  text-align: center;
+}
+
+.home-banner h2 {
+  font-size: 2.5rem;
+  color: var(--tenne-tawny);
+}
+
+.home-banner p {
+  font-size: 1.2rem;
+  line-height: 1;
+  color: rgb(139, 88, 88);
+}
+
+/* Search Bar Styling */
+.home-search-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #a7a2a2;
+  padding: 25px;
+  width: 90%;
+  height: 20px;
+  border-radius: 50px;
+  margin: 10px;
+  position: relative;
+  background-color: #f6f3f3;
+}
+
+.home-input {
+  margin: 10px 5px;
+  margin-left: 15px;
+  color: #4B3621;
+  width: 100%;
+  border: none;
+  background: transparent;
+  outline: none;
+  transition-delay: 0.5s;
+}
+
+.home-magnifier {
+  position: absolute;
+  left: 15px;
+  width: 25px;
+  text-align: center;
+  margin: 0 auto;
+  cursor: pointer;
+  color: #a7a2a2;
+  top: 13.1px;
+}
+
+/* Meal Wrapper and Items */
+.home-meal-wrapper {
+  max-width: 1400px;
+  padding: 2rem;
+  margin: auto;
+}
+
+.home-meal-wrapper h2 {
+  font-weight: 600;
+  font-size: 2.5rem;
+}
+
+#home-meal {
+  margin: 2.4rem 0;
+}
+
+.home-meal-item {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.8);
+  background: #b3875b;
+  width: 400px;
+}
+
+.home-meal-img img {
+  border-radius: 1rem;
+  width: 90%;
+  display: block;
+  margin: auto;
+  margin-top: 1rem;
+  border-top-left-radius: 12px; 
+  border-top-right-radius: 12px;
+}
+
+.home-meal-name {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  margin-left: 1rem;
+}
+
+.home-meal-name h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-left: 0.7rem;
+  color: #4B3621;
+  display: flex;
+  align-items: center;
+}
+
+/* Button Styling */
+.home-btn {
+  font-family: inherit;
+  cursor: pointer;
+  outline: 0;
+  font-size: 1.2rem;
+  background: #fff;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+  color: red;
+  padding: 1rem;
+}
+
+/* Footer Styling */
+.home-footer {
+  position: relative;
+  background-color: var(--tenne-tawny-dark);
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+}
+
+.home-github {
+  object-fit: cover;
+  font-size: 3rem;
+  text-decoration: none;
+  color: #f6f3f3;
+}
+
+.home-social a i {
+  color: #f6f3f3;
+}
+
+.home-nav-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+  margin-bottom: 1rem;
+}
+
+.home-nav-footer a {
+  font-size: 1rem;
+  color: #f6f3f3;
+  font-weight: 500;
+  transition: 0.4s ease;
+  margin: 10px;
+  padding: 0.2rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.home-footer p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f6f3f3;
+  font-weight: 500;
+  transition: 0.4s ease;
+}
+
+/* Responsive Grid for Meal Items */
+@media screen and (min-width: 768px) {
+  #home-meal {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #home-meal {
+      grid-template-columns: repeat(3, 1fr);
+  }
+}
