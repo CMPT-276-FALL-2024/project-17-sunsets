@@ -1,17 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import RecipeView from './RecipeView'
+import { useState } from 'react';
+import Home from './pages/Home.jsx';
+import Recipes from './pages/Recipes.jsx'
+import './index.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-    
-      <RecipeView/>
-    </>
-  )
+  return(
+    <Router>
+      <Routes>
+        <Route path = '/' element = {<Home/>}></Route>
+        <Route path = "/recipes" element={<Recipes/>}></Route>
+      </Routes>
+    </Router>
+  );
 }
 
 export default App
