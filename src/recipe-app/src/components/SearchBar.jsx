@@ -21,7 +21,7 @@ const SearchBar = ({ onSearch, page }) => {
 
   return (
     <form onSubmit={handleSearch} className={containerClass}>
-      <span className={magnifierClass}>
+      <span className={magnifierClass} onClick={handleSearch} style={{ cursor: 'pointer' }}>
         <i className="fa-solid fa-magnifying-glass magnifier"> </i>
       </span>
       <input
