@@ -20,9 +20,13 @@ jobs:
         with:
           node-version: '22'
 
+        # package.json not in root folder.  
+      - name: Navigate to subdirectory
+        run: cd src/recipe-app/src # Set the working directory for all following commands
+
       # Install dependencies
       - name: Install dependencies
-        run: npm install
+        run: npm install # Installs all 3 dependencies from package.json
 
       # Placeholder for tests (real tests should replace this in the future)
       - name: Run tests
