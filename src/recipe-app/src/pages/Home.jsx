@@ -32,6 +32,11 @@ function HomePage() {
     navigate(`/recipes?search=${encodeURIComponent(query)}`);
   };
 
+  // Handle click to navigate to the SingleRecipe page
+  const handleImageClick = (recipeId) => {
+    navigate(`/recipe/${recipeId}`); // Navigate to SingleRecipe page with recipe ID
+  };
+
   return (
     <>
       <Navbar className='home' />
