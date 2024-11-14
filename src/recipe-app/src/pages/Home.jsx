@@ -26,15 +26,10 @@ function HomePage() {
     // fetchRecommendedEggRecipes();
   }, []);
 
-  // Handle search and redirect to the recipe page
+  // Handle search and redirect to the single recipe page
   const handleSearch = (query) => {
     // Use navigate to redirect to the /recipes page with the search query as a URL parameter
     navigate(`/recipes?search=${encodeURIComponent(query)}`);
-  };
-
-  // Handle click to navigate to the SingleRecipe page
-  const handleImageClick = (recipeId) => {
-    navigate(`/recipe/${recipeId}`); // Navigate to SingleRecipe page with recipe ID
   };
 
   return (

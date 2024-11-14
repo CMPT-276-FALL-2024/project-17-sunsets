@@ -31,7 +31,7 @@ const RecipeDetails = () => {
         return <p>Loading recipe details...</p>;
     }
 
-    // Function to go back to the Recipes page
+    // Function to go back to the Recipes page or home page
     const handleBack = () => {
         navigate(-1); // Navigate back to the previous page
     };
