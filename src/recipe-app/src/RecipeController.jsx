@@ -21,7 +21,7 @@ export const processRecipeInfo = async (recipeId) => {
     }
 };
 
-// Function to get 6 random "egg" recipes for the home page
+// Function to get 3 random "egg" recipes for the home page
 export const getRandomEggRecipes = async () => {
     try {
         return await getRecipes('', 3, 'egg'); // Fetches 3 recipes with "egg"

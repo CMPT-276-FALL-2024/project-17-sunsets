@@ -1,7 +1,7 @@
 // SearchBar.jsx
 import React, { useState } from 'react';
 
-const SearchBar = ({ onSearch, page }) => {
+const SearchBar = ({ onSearch}) => {
   const [query, setQuery] = useState('');
 
   const handleInputChange = (e) => {
@@ -15,13 +15,9 @@ const SearchBar = ({ onSearch, page }) => {
     }
   };
 
-  const containerClass = page === 'home' ? 'home-search-container' : 'recipe-search-container';
-  const inputClass = page === 'home' ? 'home-input' : 'recipe-input';
-  const magnifierClass = page === 'home' ? 'home-magnifier' : 'recipe-magnifier';
-
   return (
-    <form onSubmit={handleSearch} className={containerClass}>
-      <span className={magnifierClass} onClick={handleSearch} style={{ cursor: 'pointer' }}>
+    <form onSubmit={handleSearch} className='home-search-container'>
+      <span className='home-magnifier' onClick={handleSearch} style={{ cursor: 'pointer' }}>
         <i className="fa-solid fa-magnifying-glass magnifier"> </i>
       </span>
       <input
@@ -29,7 +25,7 @@ const SearchBar = ({ onSearch, page }) => {
         value={query}
         onChange={handleInputChange}
         placeholder="Search"
-        className={inputClass}
+        className='home-input'
       />
       <button type="submit" style={{ display: 'none' }} />
     </form>

@@ -1,0 +1,113 @@
+/* Container and general styling */
+.recipe-page-container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #6B6B6B;
+    margin-bottom: 10px;
+}
+
+.recipe-title {
+    font-size: 2rem;
+    color: #4B3621;
+    margin-top: 0;
+    font-weight: bold;
+}
+
+/* Content layout */
+.recipe-content {
+    display: flex;
+    gap: 150px;
+}
+
+/* Main section for image and instructions */
+.recipe-main {
+    flex: 2;
+}
+
+
+/* Instructions section styling */
+.recipe-section.directions {
+    margin-top: 20px;
+}
+
+.recipe-section.directions ol {
+    padding-left: 20px; /* Indent the list */
+    margin-top: 10px;
+}
+
+.recipe-section.directions ol li {
+    margin-bottom: 10px; /* Space between each instruction step */
+    line-height: 1.6;
+    font-size: 1rem;
+    color: #333;
+}
+
+.recipe-section.directions h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #4B3621;
+}
+
+
+/* Ingredients section styling */
+.recipe-aside {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.recipe-section.ingredients ul {
+    list-style-type: disc;
+    padding-left: 0;
+    font-size: 1rem;
+}
+
+.recipe-section.ingredients ul li {
+    margin-bottom: 5px;
+}
+
+/* Nutrition Facts section */
+.nutrition-facts {
+    background-color: #F9F9F9;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.nutrition-facts h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.nutrition-facts ul {
+    list-style-type: disc;
+    padding-left: 0;
+}
+
+.nutrition-facts ul li {
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+.nutrition-facts-summary {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.nutrition-facts-summary p {
+    font-size: 1.1rem;
+    font-weight: bold;
+}

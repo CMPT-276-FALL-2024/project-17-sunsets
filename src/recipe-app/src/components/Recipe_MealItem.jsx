@@ -1,5 +1,6 @@
 // MealItem.jsx
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MealItem = ({ recipe, className }) => {
     return (
@@ -9,7 +10,7 @@ const MealItem = ({ recipe, className }) => {
             </div>
             <div className="recipe-meal-name">
                 <h3>{recipe.title}</h3>
-                <a href={`/recipe/${recipe.id}`} className="recipe-btn">Get Recipe</a>
+                <Link to={`/recipe/${recipe.id}`} className="recipe-btn">Get Recipe</Link>
             </div>
         </div>
     );

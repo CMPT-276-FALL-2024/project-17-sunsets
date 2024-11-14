@@ -4,14 +4,13 @@ const API_KEY = ''; //add the api key here
 
 import axios from 'axios';
 
-export const getRecipes = async (query, number = 3, ingredient = '') => {
+export const getRecipes = async (query, number = 3) => {
     try {
         const res = await axios.get(`${API_URL}/complexSearch`, {
             params: {
                 apiKey: API_KEY,
                 query,
                 number,
-                includeIngredients: ingredient
             }
         });
         const recipes = res.data.results;
@@ -39,6 +38,7 @@ export const getRecipes = async (query, number = 3, ingredient = '') => {
 export const getRecipeInfo = async (recipeId) => {
     try {
         const res = await axios.get(`${API_URL}/${recipeId}/information?apiKey=${API_KEY}&includeNutrition=true`);
+        // console.log(res.data);
         return res.data;
     } catch (err) {
         console.error('Error getting recipe details', err);
