@@ -1,33 +1,31 @@
-name: CI/CD Pipeline
+name: CI Pipeline
 
 on:
   push:
-    branches: [main]  # Run on pushes to main
+    branches: [main]
   pull_request:
-    branches: [main]  # Run on pull requests to main
+    branches: [main]
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
     steps:
-      # Check out the code
-      - uses: actions/checkout@v4
+      # Step 1: Check out the code from the repository
+      - uses: actions/checkout@v3
 
-      # Set up Node.js
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      # Step 2: Set up Node.js environment
+      - name: Set up Node.js environment
+        uses: actions/setup-node@v3
         with:
-          node-version: '22'
+          node-version: '20'
 
-        # package.json not in root folder.  
-      - name: Navigate to subdirectory
-        run: cd src/recipe-app/src # Set the working directory for all following commands
-
-      # Install dependencies
+      # Step 3: Install dependencies
       - name: Install dependencies
-        run: npm install # Installs all 3 dependencies from package.json
+        working-directory: src/recipe-app/src  # Explicitly set working directory (package.json not in root)
+        run: npm install  # Installs dependencies from the package.json in specified directory
 
-      # Placeholder for tests (real tests should replace this in the future)
+      # Step 4: Run tests placeholder
       - name: Run tests
-        run: echo "Placeholder, Tests will be added here"
+        working-directory: src/recipe-app/src  # Explicitly set working directory
+        run: echo "Placeholder for tests - add tests here"
