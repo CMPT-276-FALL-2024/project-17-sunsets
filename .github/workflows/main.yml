@@ -22,10 +22,10 @@ jobs:
 
       # Step 3: Install dependencies
       - name: Install dependencies
-        working-directory: src/recipe-app/src  # Explicitly set working directory (package.json not in root)
+        working-directory: src/recipe-app # Explicitly set working directory (package.json not in root)
         run: npm install  # Installs dependencies from the package.json in specified directory
 
       # Step 4: Run tests placeholder
       - name: Run tests
-        working-directory: src/recipe-app/src  # Explicitly set working directory
+        working-directory: src/recipe-app # Explicitly set working directory
         run: echo "Placeholder for tests - add tests here"
