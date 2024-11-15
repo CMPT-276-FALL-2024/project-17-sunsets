@@ -28,4 +28,4 @@ jobs:
       # Step 4: Run tests placeholder
       - name: Run tests
         working-directory: src/recipe-app # Explicitly set working directory
-        run: echo "Placeholder for tests - add tests here"
+        run: npm test #run test
