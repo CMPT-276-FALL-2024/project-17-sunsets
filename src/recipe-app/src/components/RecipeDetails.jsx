@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { processRecipeInfo } from '../RecipeController.jsx';
+import { processRecipeInfo, processSaveRecipe } from '../RecipeController.jsx';
 import '../styles/SingleRecipePage.css'
 
 const RecipeDetails = () => {
@@ -36,6 +36,12 @@ const RecipeDetails = () => {
         navigate(-1); // Navigate back to the previous page
     };
 
+    const handleSaveRecipe = () =>{
+        if(recipe){
+            processSaveRecipe(recipe);
+        }
+    }
+
     return (
         <div className="recipe-page-container">
             <button className="back-button" onClick={handleBack}>← Back</button>
@@ -49,7 +55,7 @@ const RecipeDetails = () => {
                             <img src={recipe.image} alt={recipe.title} />
                         </div>
                         <div className="home-meal-name">
-                            <button className="home-btn"><i className="far fa-heart"></i></button>
+                            <button className="home-btn" onClick={handleSaveRecipe}><i className="far fa-heart"></i></button>
                             <h3>{recipe.title}</h3>
                         </div>
                     </div>
