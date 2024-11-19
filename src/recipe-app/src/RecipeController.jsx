@@ -1,4 +1,4 @@
-import { getRecipeInfo, getRecipes } from "./RecipeModel";
+import { getRecipeInfo, getRecipes, loadSavedRecipes, saveRecipe } from "./RecipeModel";
 
 
 export const processRecipes = async (query) => {
@@ -30,3 +30,24 @@ export const getRandomEggRecipes = async () => {
         throw new Error('Error fetching random egg recipes');
     }
 };
+
+
+export const processSaveRecipe =(recipe)=>{
+  try{
+    saveRecipe(recipe);
+  }
+  catch(err){
+    console.error('Error in saving recipe', err);
+    throw new Error("Error in saving recipe");
+  }
+}
+
+export const processLoadSavedRecipes = ()=>{
+  try{
+    return loadSavedRecipes();
+  }
+  catch(err){
+    console.error('Error in loading saved recipe', err);
+    throw new Error("Error in loading saved recipe");
+  }
+}

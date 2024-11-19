@@ -1,6 +1,6 @@
 const API_URL = 'https://api.spoonacular.com/recipes';
-//const API_KEY = process.env.REACT_APP_SPOONACULAR_API_KEY;
-const API_KEY = ''; //add the api key here
+const API_KEY = import.meta.env.VITE_SPOONACULAR_API_KEY;
+
 
 import axios from 'axios';
 
@@ -61,7 +61,10 @@ export const getRecipeInfoBulk = async (recipeIds) =>{
 export const loadSavedRecipes= () => {
     try {
         const savedRecipes = localStorage.getItem('savedRecipes');
-        return savedRecipes = JSON.parse(savedRecipes);
+        if(!savedRecipes){
+            return [];
+        }
+        return JSON.parse(savedRecipes);
     } catch (err) {
         console.error('Error loading saved recipes', err);
         return [];
@@ -71,8 +74,16 @@ export const loadSavedRecipes= () => {
 export const saveRecipe= (recipe) => {
     try {
         const savedRecipes = loadSavedRecipes();
+        //check if there is already a recipe that has the same recipe id in the list
+        const recipeExists = savedRecipes.some(savedRecipe => savedRecipe.id === recipe.id); 
+        
+        if (recipeExists) {
+            console.log('Recipe is already saved');
+            return;
+        }
+
         savedRecipes.push(recipe);
-        localStorage.setItem('savedRecipes', JSON.stringify(savedRecipes));
+        localStorage.setItem('savedRecipes', JSON.stringify(savedRecipes)); //key & value
     } catch (err) {
         console.error('Error saving recipe', err);
     }
