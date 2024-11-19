@@ -88,3 +88,15 @@ export const saveRecipe= (recipe) => {
         console.error('Error saving recipe', err);
     }
 }
+
+export const deleteSavedRecipe = (recipe) =>{
+    try{
+        const savedRecipes = loadSavedRecipes();
+        //Saved Recipes list without the recipe to be deleted
+        const delRecipeList = savedRecipes.filter(savedRecipe => savedRecipe.id !== recipe.id);
+        localStorage.setItem('savedRecipes', JSON.stringify(delRecipeList));
+    }
+    catch(err){
+        console.error('Error deleting saved recipe', err);
+    }
+}

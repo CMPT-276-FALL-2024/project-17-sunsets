@@ -1,4 +1,4 @@
-import { getRecipeInfo, getRecipes, loadSavedRecipes, saveRecipe } from "./RecipeModel";
+import { deleteSavedRecipe, getRecipeInfo, getRecipes, loadSavedRecipes, saveRecipe } from "./RecipeModel";
 
 
 export const processRecipes = async (query) => {
@@ -49,5 +49,14 @@ export const processLoadSavedRecipes = ()=>{
   catch(err){
     console.error('Error in loading saved recipe', err);
     throw new Error("Error in loading saved recipe");
+  }
+}
+
+export const processDeleteRecipe = (recipe)=>{
+  try{
+    deleteSavedRecipe(recipe);
+  }
+  catch(err){
+    console.error('Error in deleting saved recipe', err);
   }
 }

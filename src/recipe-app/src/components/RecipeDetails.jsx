@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { processRecipeInfo, processSaveRecipe } from '../RecipeController.jsx';
+import { processRecipeInfo, processSaveRecipe, processLoadSavedRecipes, processDeletedRecipe } from '../RecipeController.jsx';
 import '../styles/SingleRecipePage.css'
 
 const RecipeDetails = () => {
@@ -8,12 +8,18 @@ const RecipeDetails = () => {
     const navigate = useNavigate(); // Initialize navigate function
     const [recipe, setRecipe] = useState(null);
     const [error, setError] = useState(null);
+    const [saved, setSaved] = useState(false);
 
     useEffect(() => {
         const fetchRecipe = async () => {
             try {
                 const recipeData = await processRecipeInfo(recipeId);
                 setRecipe(recipeData);
+
+                //Check if we already saved the recipe
+                const savedRecipes = processLoadSavedRecipes();
+                const checkSaved = savedRecipes.some(savedRecipe => savedRecipe.id === recipeData.id);
+                setSaved(checkSaved);
             } catch (err) {
                 console.error("Error fetching recipe details:", err);
                 setError('Failed to load recipe details.');
@@ -38,7 +44,16 @@ const RecipeDetails = () => {
 
     const handleSaveRecipe = () =>{
         if(recipe){
-            processSaveRecipe(recipe);
+            const savedRecipes = processLoadSavedRecipes();
+            const checkSaved = savedRecipes.some(savedRecipe => savedRecipe.id === recipe.id);
+            if(checkSaved){
+                processDeleteRecipe(recipe);
+                setSaved(false);
+            }
+            else{
+                processSaveRecipe(recipe);
+                setSaved(true)
+            }
         }
     }
 
@@ -55,7 +70,7 @@ const RecipeDetails = () => {
                             <img src={recipe.image} alt={recipe.title} />
                         </div>
                         <div className="home-meal-name">
-                            <button className="home-btn" onClick={handleSaveRecipe}><i className="far fa-heart"></i></button>
+                            <button className="home-btn" onClick={handleSaveRecipe}><i className={saved ? 'fas fa-heart' : 'far fa-heart'}></i></button>
                             <h3>{recipe.title}</h3>
                         </div>
                     </div>
