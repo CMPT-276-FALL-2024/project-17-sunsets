@@ -1,0 +1,52 @@
+/* Navbar Styling */
+.favorite-navbar {
+    background-color: var(--tenne-tawny-dark);
+    padding: 0 5%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+.favorite-menu-bar {
+    margin-top: 0.8rem;
+    margin-right: 1rem;
+    color: #f6f3f3;
+    cursor: pointer;
+}
+
+.favorite-navdiv {
+    display: flex;
+    gap: 10px;
+}
+
+.favorite-navdiv a {
+    font-size: 1rem;
+    color: #f6f3f3;
+    font-weight: 500;
+    transition: 0.4s ease;
+    margin: 10px;
+    padding: 0.2rem;
+}
+
+.favorite-navdiv a:hover,
+.favorite-navdiv a.favorite-active {
+    background-color: #FFD700; /* Yellow background for active and hover states */
+    color: #4B3621; /* Dark brown text on hover */
+    border-radius: 20%;
+}
+
+.favorite-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content if there is minimal content */
+    flex-grow: 1; /* This makes the content area expand */
+}
+
+.favorite-title{
+    padding: 1rem;
+    font-size: 2rem;
+}

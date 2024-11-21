@@ -11,7 +11,7 @@ function Navbar({className}) {
         </span>
         <Link to="/" className="home-active">Home</Link>
         <Link to="/recipes" className = "recipe-active">Recipe</Link> {/* Corrected route path */}
-        <Link to="/favorites">Favorites</Link>
+        <Link to="/favorites" className = "favorite-active">Favorites</Link>
         <Link to="/mealplanner">Meal Planner</Link>
         {/* <span className="profile-icon">
           <i className="fa-regular fa-user"></i>
