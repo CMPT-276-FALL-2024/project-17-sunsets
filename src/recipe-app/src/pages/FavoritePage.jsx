@@ -17,8 +17,10 @@ const FavoritePage = () =>{
                 
             <div className="favorite-content">
                 <h1 className="favorite-title">Your Favorite Recipes: </h1>  
-                             
-                <div id = "recipe-meal">
+                
+
+                {/* Make sure the content is in the this div*/}
+                <div id = "recipe-meal"> 
 
                     {/* The content below just use for testing the layout  */}
                     <div className={`home-meal-item`}>
