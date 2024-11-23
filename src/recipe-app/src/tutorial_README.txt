@@ -10,7 +10,7 @@ Video Player: A YouTube player for watching selected tutorials.
 Saved Videos: A list of user-saved tutorials for quick access.
 Playlists: User-created collections of videos for better organization.
 
-Used MVC approach similar to that in API 1. (thanks Simon and Ameer).
+Used MVC approach similar to that in API 1.
 
 Intended Design:
 Navbar
