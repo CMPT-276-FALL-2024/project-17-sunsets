@@ -232,6 +232,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: auto;
 }
 
 .home-social {
