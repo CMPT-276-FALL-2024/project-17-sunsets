@@ -1,68 +1,56 @@
 // Recipes.jsx
-import Navbar from '../components/Navbar.jsx';
-import Footer from '../components/Footer.jsx';
-import SearchBar from '../components/Recipe_SearchBar.jsx';
-import '../styles/RecipePage.css';
-import '../styles/HomePage.css';
-import '../styles/FavoritePage.css';
-import food from '../assets/images/food.jpg';
+import React, { useState, useEffect } from 'react';
+import Navbar from "../components/Navbar.jsx";
+import Footer from "../components/Footer.jsx";
+import SearchBar from "../components/Recipe_SearchBar.jsx";
+import "../styles/RecipePage.css";
+import "../styles/HomePage.css";
+import "../styles/FavoritePage.css";
+import food from "../assets/images/food.jpg";
+import { processLoadSavedRecipes } from "../RecipeController.jsx";
 
+const FavoritePage = () => {
+  const [savedRecipes, setSavedRecipes] = useState([]);
 
-const FavoritePage = () =>{
+  useEffect(() => {
+    const loadSavedRecipes = async () => {
+      const loadedRecipes = await processLoadSavedRecipes();
+      setSavedRecipes(loadedRecipes);
+    };
+    loadSavedRecipes();
+  }, []);
 
-    return (
-        <div className="page-container">
-            <Navbar className="favorite" />
-            <SearchBar className="recipe" />
-                
-            <div className="favorite-content">
-                <h1 className="favorite-title">Your Favorite Recipes: </h1>  
-                
+  return (
+    <div className="page-container">
+      <Navbar className="favorite" />
+      <SearchBar className="recipe" />
 
-                {/* Make sure the content is in the this div*/}
-                <div id = "recipe-meal"> 
+      <div className="favorite-content">
+        <h1 className="favorite-title">Your Favorite Recipes: </h1>
 
-                    {/* The content below just use for testing the layout  */}
-                    <div className={`home-meal-item`}>
-                        <div className={`home-meal-img`}>
-                            <img src={food} alt="potato" />
-                        </div>
-                        <div className={`home-meal-name`}>
-                            <button className={`home-btn`}>
-                                <i className="far fa-heart"></i>
-                            </button>
-                            <h3>Potato</h3>
-                        </div>
-                    </div>
-                    <div className={`home-meal-item`}>
-                        <div className={`home-meal-img`}>
-                            <img src={food}  alt="potato" />
-                        </div>
-                        <div className={`home-meal-name`}>
-                            <button className={`home-btn`}>
-                                <i className="far fa-heart"></i>
-                            </button>
-                            <h3>Potato</h3>
-                        </div>
-                    </div>
-                    <div className={`home-meal-item`}>
-                        <div className={`home-meal-img`}>
-                            <img src={food}  alt="potato" />
-                        </div>
-                        <div className={`home-meal-name`}>
-                            <button className={`home-btn`}>
-                                <i className="far fa-heart"></i>
-                            </button>
-                            <h3>Potato</h3>
-                        </div>
-                    </div>
-
-
+        {/* Make sure the content is in the this div*/}
+        <div id="recipe-meal">
+          {/* The content below just use for testing the layout  */}
+          {savedRecipes.length > 0 ? (
+            savedRecipes.map((recipe) => (
+              <div className="home-meal-item">
+                <div className="home-meal-img">
+                  <img src={recipe.image} alt={recipe.title} />
                 </div>
-            </div>
-                
-            <Footer className="home" />
+                <div className="home-meal-name">
+                  <i className="far fa-heart"></i>
+                  <h3>{recipe.title}</h3>
+                </div>
+              </div>
+            ))
+          ) : (
+            <p>No Favourited Recipes</p>
+          )}
         </div>
-        );
+      </div>
+
+      <Footer className="home" />
+    </div>
+  );
 };
 export default FavoritePage;

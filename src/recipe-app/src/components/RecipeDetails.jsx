@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { processRecipeInfo, processSaveRecipe, processLoadSavedRecipes, processDeletedRecipe } from '../RecipeController.jsx';
+import { processRecipeInfo, processSaveRecipe, processLoadSavedRecipes, processDeleteRecipe } from '../RecipeController.jsx';
 import '../styles/SingleRecipePage.css'
 
 const RecipeDetails = () => {
