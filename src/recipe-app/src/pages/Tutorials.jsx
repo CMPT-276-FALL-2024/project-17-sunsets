@@ -4,34 +4,35 @@ import Footer from "../components/Footer"; // Footer for consistency
 import YouTubeVideoSearchBar from "../YouTubeVideoSearchBar.jsx"; // Search bar component
 import YouTubeView from "../YouTubeView.jsx"; // Video results component
 import '../styles/Tutorials.css';
+import { fetchSavedVideos,addVideoToSaved,deleteVideoFromSaved} from "../YouTubeController.jsx"
 
 const Tutorials = () => {
   const [videos, setVideos] = useState([]); // Search results
   const [currentVideo, setCurrentVideo] = useState(""); // Currently playing video
   const [savedVideos, setSavedVideos] = useState([]); // Saved videos
-  const [playlists, setPlaylists] = useState([]); // User-created playlists
+
+  // Load saved videos from the controller when the component mounts
+  useEffect(() => {
+    setSavedVideos(fetchSavedVideos());
+  }, []);
 
   // Play a video
   const handlePlay = (videoId) => {
     setCurrentVideo(videoId);
   };
 
-  // Save a video to the saved list
+  
+  // Save a video
   const handleSave = (name, id) => {
-    if (!savedVideos.find((video) => video.id === id)) {
-      const newVideo = { name, id };
-      setSavedVideos([...savedVideos, newVideo].sort((a, b) => a.name.localeCompare(b.name)));
-    }
+    const newVideo = { name, id };
+    addVideoToSaved(newVideo); // Delegate to controller
+    setSavedVideos(fetchSavedVideos()); // Refresh state
   };
 
-  // Add a video to a specific playlist
-  const handleAddToPlaylist = (playlistName, name, id) => {
-    const updatedPlaylists = playlists.map((playlist) =>
-      playlist.name === playlistName
-        ? { ...playlist, videos: [...playlist.videos, { name, id }] }
-        : playlist
-    );
-    setPlaylists(updatedPlaylists);
+  // Remove a video
+  const handleRemove = (videoId) => {
+    deleteVideoFromSaved(videoId); // Delegate to controller
+    setSavedVideos(fetchSavedVideos()); // Refresh state
   };
 
   return (
