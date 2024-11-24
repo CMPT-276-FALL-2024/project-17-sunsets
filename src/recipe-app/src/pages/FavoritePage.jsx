@@ -7,10 +7,11 @@ import "../styles/RecipePage.css";
 import "../styles/HomePage.css";
 import "../styles/FavoritePage.css";
 import food from "../assets/images/food.jpg";
-import { processLoadSavedRecipes } from "../RecipeController.jsx";
+import { processLoadSavedRecipes, processDeleteRecipe } from "../RecipeController.jsx";
 
 const FavoritePage = () => {
   const [savedRecipes, setSavedRecipes] = useState([]);
+  const [saved, setSaved] = useState(false);
 
   useEffect(() => {
     const loadSavedRecipes = async () => {
@@ -19,6 +20,12 @@ const FavoritePage = () => {
     };
     loadSavedRecipes();
   }, []);
+
+  const handleUnsaveRecipe = (recipe) => {
+    const updatedRecipes = savedRecipes.filter(savedRecipe => savedRecipe.id !== recipe.id);
+    setSavedRecipes(updatedRecipes); 
+    processDeleteRecipe(recipe); 
+  };
 
   return (
     <div className="page-container">
@@ -38,7 +45,7 @@ const FavoritePage = () => {
                   <img src={recipe.image} alt={recipe.title} />
                 </div>
                 <div className="home-meal-name">
-                  <i className="far fa-heart"></i>
+                <button className="home-btn" onClick={() => handleUnsaveRecipe(recipe)}><i className={saved ? 'fas fa-heart' : 'far fa-heart'}></i></button>
                   <h3>{recipe.title}</h3>
                 </div>
               </div>
