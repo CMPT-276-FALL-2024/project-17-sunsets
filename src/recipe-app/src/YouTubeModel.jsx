@@ -1,5 +1,5 @@
 const API_URL = "https://www.googleapis.com/youtube/v3/search";
-const API_KEY = import.meta.env.VITE_SPOONACULAR_API_KEY;
+const API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
 
 import axios from "axios";
 
@@ -29,11 +29,13 @@ export const fetchYouTubeVideos = async (query) => {
 
 /**
  * Retrieves saved videos from local storage.
- * @returns {Array} List of saved videos.
+ * @returns {Array} List of saved videos or an empty array if none exist.
  */
 export const getSavedVideos = () => {
-  return JSON.parse(localStorage.getItem("savedVideos")) || [];
+  const savedVideos = localStorage.getItem("savedVideos");
+  return savedVideos ? JSON.parse(savedVideos) : []; // Always return an array
 };
+
 
 /**
  * Saves a video to local storage.

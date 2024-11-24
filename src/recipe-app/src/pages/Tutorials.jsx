@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar"; // Navbar for navigation
 import Footer from "../components/Footer"; // Footer for consistency
 import YouTubeVideoSearchBar from "../YouTubeVideoSearchBar.jsx"; // Search bar component
@@ -13,7 +13,12 @@ const Tutorials = () => {
 
   // Load saved videos from the controller when the component mounts
   useEffect(() => {
-    setSavedVideos(fetchSavedVideos());
+    try {
+      setSavedVideos(fetchSavedVideos()); // Fetch saved videos on mount
+    } catch (error) {
+      console.error("Error fetching saved videos:", error); // Log errors if local storage fails
+      setSavedVideos([]); // Fallback to an empty array
+    }
   }, []);
 
   // Play a video
@@ -64,25 +69,37 @@ const Tutorials = () => {
           videos={videos}
           onPlay={handlePlay}
           onSave={handleSave}
-          onAddToPlaylist={handleAddToPlaylist}
         />
 
         {/* Saved Videos Section */}
+        {/* List of elements with 'remobe' button on right*/}
         <div className="saved-videos-section">
           <h3>Saved Videos</h3>
-          <ul>
-            {savedVideos.map((video) => (
-              <li key={video.id}>
-                <a
-                  href={`https://www.youtube.com/watch?v=${video.id}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {video.name}
-                </a>
-              </li>
-            ))}
-          </ul>
+          {savedVideos.length > 0 ? (
+            <ul className="saved-videos-list">
+              {savedVideos.map((video) => (
+                <li key={video.id} className="saved-video-item">
+                  <span className="saved-video-title">
+                    <a
+                      href={`https://www.youtube.com/watch?v=${video.id}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {video.name}
+                    </a>
+                  </span>
+                  <button
+                    className="remove-video-button"
+                    onClick={() => handleRemove(video.id)}
+                  >
+                    Remove
+                  </button>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>No saved videos yet.</p>
+          )}
         </div>
       </div>
 
