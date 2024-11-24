@@ -13,6 +13,7 @@ function Navbar({className}) {
         <Link to="/recipes" className = "recipe-active">Recipe</Link> {/* Corrected route path */}
         <Link to="/favorites" className = "favorite-active">Favorites</Link>
         <Link to="/mealplanner">Meal Planner</Link>
+        <Link to="/tutorials">Tutorials</Link>
         {/* <span className="profile-icon">
           <i className="fa-regular fa-user"></i>
         </span> */}
