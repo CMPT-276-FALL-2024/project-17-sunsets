@@ -8,10 +8,11 @@ import "../styles/HomePage.css";
 import "../styles/FavoritePage.css";
 import food from "../assets/images/food.jpg";
 import { processLoadSavedRecipes, processDeleteRecipe } from "../RecipeController.jsx";
+import { useNavigate } from 'react-router-dom';
 
 const FavoritePage = () => {
   const [savedRecipes, setSavedRecipes] = useState([]);
-  const [saved, setSaved] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const loadSavedRecipes = async () => {
@@ -27,6 +28,10 @@ const FavoritePage = () => {
     processDeleteRecipe(recipe); 
   };
 
+  const handleClick = (recipe) => {
+    navigate(`/recipe/${recipe.id}`);
+  };
+
   return (
     <div className="page-container">
       <Navbar className="favorite" />
@@ -40,19 +45,17 @@ const FavoritePage = () => {
           {/* The content below just use for testing the layout  */}
           {savedRecipes.length > 0 ? (
             savedRecipes.map((recipe) => (
-              <div className="home-meal-item">
+              <div key={recipe.id} className="home-meal-item" onClick={() => handleClick(recipe)}>
                 <div className="home-meal-img">
                   <img src={recipe.image} alt={recipe.title} />
                 </div>
                 <div className="home-meal-name">
-                <button className="home-btn" onClick={() => handleUnsaveRecipe(recipe)}><i className={saved ? 'fas fa-heart' : 'far fa-heart'}></i></button>
+                <button className="home-btn" onClick={(e) =>{e.stopPropagation();  handleUnsaveRecipe(recipe)}}><i className= 'fas fa-heart'></i></button>
                   <h3>{recipe.title}</h3>
                 </div>
               </div>
             ))
-          ) : (
-            <p>No Favourited Recipes</p>
-          )}
+          ) : (<p>No Favorited Recipes</p>)}
         </div>
       </div>
 
