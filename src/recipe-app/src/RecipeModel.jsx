@@ -1,6 +1,6 @@
 const API_URL = 'https://api.spoonacular.com/recipes';
 //const API_KEY = process.env.REACT_APP_SPOONACULAR_API_KEY;
-const API_KEY = ''; //add the api key here
+const API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
 
 import axios from 'axios';
 

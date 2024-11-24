@@ -1,5 +1,5 @@
 const API_URL = "https://www.googleapis.com/youtube/v3/search";
-const API_KEY = ""; // Replace with your API key
+const API_KEY = import.meta.env.VITE_SPOONACULAR_API_KEY;
 
 import axios from "axios";
 
