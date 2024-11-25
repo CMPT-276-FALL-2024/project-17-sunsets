@@ -1,4 +1,4 @@
-import { deleteSavedRecipe, getRecipeInfo, getRecipes, loadSavedRecipes, saveRecipe } from "./RecipeModel";
+import { deleteSavedRecipe, getRandomRecipes, getRecipeInfo, getRecipes, loadSavedRecipes, saveRecipe } from "./RecipeModel";
 
 
 export const processRecipes = async (query) => {
@@ -60,3 +60,13 @@ export const processDeleteRecipe = (recipe)=>{
     console.error('Error in deleting saved recipe', err);
   }
 }
+
+export const processRandomRecipes = async () => {
+  try {
+      const response = await getRandomRecipes();
+      return response;
+  } catch (err) {
+      console.error('Error in RecipeController processRecipeInfo', err);
+      throw new Error('Error processing recipe info');
+  }
+};

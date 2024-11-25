@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar.jsx';
 import Banner from '../components/Banner.jsx';
 import MealList from '../components/MealList.jsx';
 import Footer from '../components/Footer.jsx';
-import { getRandomEggRecipes } from '../RecipeController';
+import { getRandomEggRecipes, processRandomRecipes } from '../RecipeController';
 import '../styles/HomePage.css';
 
 function HomePage() {
@@ -24,6 +24,20 @@ function HomePage() {
 
     //uncomment this to get a full functional recipe
     // fetchRecommendedEggRecipes();
+  }, []);
+
+  useEffect(()=>{
+    const fetchRandomRecipes = async () =>{
+    try{
+      const randomRecipes = await processRandomRecipes();
+      console.log(randomRecipes);
+      setRecipes(randomRecipes);
+    }
+    catch(error){
+      console.error("Error fetching random recipes:", error);
+    }
+  };
+  fetchRandomRecipes();
   }, []);
 
   // Handle search and redirect to the single recipe page
