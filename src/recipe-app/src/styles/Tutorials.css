@@ -12,25 +12,43 @@ body {
 
 /* Navbar Styling */
 .tutorials-navbar {
-    background-color: #333;
-    color: white;
-    padding: 1rem;
+    background-color: var(--tenne-tawny-dark);
+    padding: 0 5%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
+    z-index: 1;
 }
 
-.tutorials-navbar a {
-    color: white;
-    text-decoration: none;
-    margin: 0 1rem;
+.tutorials-menu-bar {
+    margin-top: 0.8rem;
+    margin-right: 1rem;
+    color: #f6f3f3;
+    cursor: pointer;
 }
 
-.tutorials-navbar a:hover {
-    color: #ffd700;
+.tutorials-navdiv {
+    display: flex;
+    gap: 10px;
+}
+
+.tutorials-navdiv a {
+    font-size: 1rem;
+    color: #f6f3f3;
+    font-weight: 500;
+    transition: 0.4s ease;
+    margin: 10px;
+    padding: 0.2rem;
+}
+
+.tutorials-navdiv a:hover,
+.tutorials-navdiv a.tutorials-active {
+    background-color: #FFD700; /* Yellow background for active and hover states */
+    color: #4B3621; /* Dark brown text on hover */
+    border-radius: 20%;
 }
 
 /* Footer Styling */
