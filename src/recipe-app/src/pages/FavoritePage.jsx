@@ -6,7 +6,6 @@ import SearchBar from "../components/Recipe_SearchBar.jsx";
 import "../styles/RecipePage.css";
 import "../styles/HomePage.css";
 import "../styles/FavoritePage.css";
-import food from "../assets/images/food.jpg";
 import { processLoadSavedRecipes, processDeleteRecipe } from "../RecipeController.jsx";
 import { useNavigate } from 'react-router-dom';
 

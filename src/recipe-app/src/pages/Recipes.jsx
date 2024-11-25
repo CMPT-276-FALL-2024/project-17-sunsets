@@ -56,7 +56,7 @@ render() {
                     <MealList recipes={this.state.recipes} className="recipe" />
                 ) : (
                     this.state.hasSearched && (
-                        <p className="no-results">No results found. Please try another search.</p>
+                        <p className="no-results">Loading the recipes.....</p>
                     )
                 )}
             </div>
