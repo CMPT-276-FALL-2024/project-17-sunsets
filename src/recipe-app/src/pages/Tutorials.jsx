@@ -3,7 +3,11 @@ import Navbar from "../components/Navbar"; // Navbar for navigation
 import Footer from "../components/Footer"; // Footer for consistency
 import YouTubeVideoSearchBar from "../YouTubeVideoSearchBar.jsx"; // Search bar component
 import YouTubeView from "../YouTubeView.jsx"; // Video results component
+import SearchBar from "../components/Recipe_SearchBar.jsx";
 import '../styles/Tutorials.css';
+import "../styles/RecipePage.css";
+import "../styles/HomePage.css";
+import "../styles/FavoritePage.css";
 
 const Tutorials = () => {
   const [videos, setVideos] = useState([]); // Search results
@@ -35,8 +39,9 @@ const Tutorials = () => {
   };
 
   return (
-    <div className="tutorials">
-      <Navbar />
+    <div className="page-container">
+      <Navbar className="tutorials"/>
+      <SearchBar className="recipe" /> 
 
       {/* Search Bar */}
       <YouTubeVideoSearchBar onSearchResults={setVideos} />
@@ -85,7 +90,7 @@ const Tutorials = () => {
         </div>
       </div>
 
-      <Footer />
+      <Footer className="home" />
     </div>
   );
 };
