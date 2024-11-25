@@ -37,7 +37,7 @@ const FavoritePage = () => {
       <SearchBar className="recipe" />
 
       <div className="favorite-content">
-        <h1 className="favorite-title">Your Favorite Recipes: </h1>
+        <h1 className="favorite-title">Your Favorite Recipes </h1>
 
         {/* Make sure the content is in the this div*/}
         <div id="recipe-meal">

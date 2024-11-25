@@ -16,7 +16,7 @@ function App() {
         <Route path = "/recipes" element={<Recipes/>}></Route>
         <Route path = "/recipe/:recipeId" element = {<SingleRecipe/>}></Route>
         <Route path = "/favorites" element = {<Favorite/>}></Route>
-        <Route path = "/youtube" element = {<Favorite/>}></Route>
+        <Route path = "/youtube" element = {<Youtube/>}></Route>
       </Routes>
     </Router>
   );

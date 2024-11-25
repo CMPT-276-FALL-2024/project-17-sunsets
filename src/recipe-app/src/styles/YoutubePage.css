@@ -1,0 +1,40 @@
+/* Navbar Styling */
+.youtube-navbar {
+    background-color: var(--tenne-tawny-dark);
+    padding: 0 5%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+.youtube-menu-bar {
+    margin-top: 0.8rem;
+    margin-right: 1rem;
+    color: #f6f3f3;
+    cursor: pointer;
+}
+
+.youtube-navdiv {
+    display: flex;
+    gap: 10px;
+}
+
+.youtube-navdiv a {
+    font-size: 1rem;
+    color: #f6f3f3;
+    font-weight: 500;
+    transition: 0.4s ease;
+    margin: 10px;
+    padding: 0.2rem;
+}
+
+.youtube-navdiv a:hover,
+.youtube-navdiv a.youtube-active {
+    background-color: #FFD700; /* Yellow background for active and hover states */
+    color: #4B3621; /* Dark brown text on hover */
+    border-radius: 20%;
+}

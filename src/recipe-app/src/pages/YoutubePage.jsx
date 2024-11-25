@@ -6,17 +6,18 @@ import SearchBar from "../components/Recipe_SearchBar.jsx";
 import "../styles/RecipePage.css";
 import "../styles/HomePage.css";
 import "../styles/FavoritePage.css";
+import "../styles/YoutubePage.css";
 
 const FavoritePage = () => {
   return (
     <div className="page-container">
-      <Navbar className="favorite" />
-      <SearchBar className="recipe" />
+      <Navbar className="youtube" />
+
+      {/* You might want to use your search component here Chaitanya  */}
+      <SearchBar className="recipe" />   
 
       <div className="favorite-content">
-        <div id="recipe-meal">
-          
-        </div>
+        
       </div>
 
       <Footer className="home" />
