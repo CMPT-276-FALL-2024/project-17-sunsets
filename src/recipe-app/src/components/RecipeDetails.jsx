@@ -48,10 +48,12 @@ const RecipeDetails = () => {
             const checkSaved = savedRecipes.some(savedRecipe => savedRecipe.id === recipe.id);
             if(checkSaved){
                 processDeleteRecipe(recipe);
+                alert("Recipe Unfavorited");
                 setSaved(false);
             }
             else{
                 processSaveRecipe(recipe);
+                alert("Recipe Favorited");
                 setSaved(true)
             }
         }
