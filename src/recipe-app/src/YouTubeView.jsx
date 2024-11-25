@@ -17,7 +17,6 @@ const YouTubeView = ({ videos, onPlay, onSave, onAddToPlaylist }) => {
           />
           <h4>{video.title}</h4>
           <button onClick={() => onSave(video.title, video.id)}>Save</button>
-          <button onClick={() => onAddToPlaylist(video.title, video.id)}>Add to Playlist</button>
         </div>
       ))}
     </div>
