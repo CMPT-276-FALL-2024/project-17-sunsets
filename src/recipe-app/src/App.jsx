@@ -17,6 +17,7 @@ function App() {
         <Route path = "/recipe/:recipeId" element = {<SingleRecipe/>}></Route>
         <Route path = "/favorites" element = {<Favorite/>}></Route>
         <Route path="/tutorials" element={<Tutorials />}> </Route>
+
       </Routes>
     </Router>
   );

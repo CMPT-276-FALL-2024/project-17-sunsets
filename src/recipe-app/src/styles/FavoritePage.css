@@ -42,11 +42,24 @@
 .favorite-content {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center content if there is minimal content */
-    flex-grow: 1; /* This makes the content area expand */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    flex-grow: 1;
+    min-height: calc(100vh - 300px); /* Ensure the content fills the remaining space below the navbar and above the footer */
 }
 
-.favorite-title{
-    padding: 1rem;
-    font-size: 2rem;
+#recipe-meal {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allow recipe items to wrap if necessary */
+    margin-top: 2rem;
 }
+
+#recipe-meal p {
+    text-align: center;
+    font-size: 1rem;
+}
+
+

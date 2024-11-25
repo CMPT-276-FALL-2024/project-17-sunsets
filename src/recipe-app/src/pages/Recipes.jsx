@@ -1,4 +1,3 @@
-// Recipes.jsx
 import React, { Component } from 'react';
 import Navbar from '../components/Navbar.jsx';
 import SearchBar from '../components/Recipe_SearchBar.jsx';
@@ -13,7 +12,9 @@ export default class Recipes extends Component {
         this.state = {
             recipes: [],
             searchQuery: '',
-            hasSearched: false // New state to track if a search has been performed
+            hasSearched: false, // Tracks if a search has been performed
+            error: null, // Tracks errors
+            loading: false, // Tracks loading state
         };
     }
 
@@ -22,48 +23,55 @@ export default class Recipes extends Component {
         const urlParams = new URLSearchParams(window.location.search);
         const searchQuery = urlParams.get('search') || '';
         if (searchQuery) {
-            this.setState({ searchQuery, hasSearched: true }, this.fetchRecipes);
+            this.setState({ searchQuery, hasSearched: true }, () => this.fetchRecipes(searchQuery));
         }
     }
 
-    fetchRecipes = async () => {
-        // Only fetch recipes if there is a search query
-        if (this.state.searchQuery) {
+    fetchRecipes = async (query) => {
+        if (query) {
+            this.setState({ loading: true, error: null }); // Set loading state before API call
             try {
-                const fetchedRecipes = await processRecipes(this.state.searchQuery);
-                this.setState({ recipes: fetchedRecipes });
+                const fetchedRecipes = await processRecipes(query);
+                this.setState({ recipes: fetchedRecipes, error: null });
             } catch (error) {
                 console.error("Error fetching recipes:", error);
+                this.setState({
+                    error: "Failed to load recipes. Please try again later.",
+                    recipes: [], // Clear recipes on error
+                });
+            } finally {
+                this.setState({ loading: false }); // Reset loading state after API call
             }
         }
     };
 
-    handleSearch = (query) => {
-        // Update searchQuery state, set hasSearched to true, and fetch new results
-        this.setState({ searchQuery: query, hasSearched: true }, this.fetchRecipes);
-    };
+    render() {
+        const { recipes, hasSearched, error, loading } = this.state;
 
-    // Recipes.jsx
-render() {
-    return (
-        <div className="page-container">
-            <Navbar className="recipe" />
-            <SearchBar onSearch={this.handleSearch} className="recipe" />
-            
-            {/* Content container to push footer to the bottom */}
-            <div className="content">
-                {this.state.hasSearched && this.state.recipes.length > 0 ? (
-                    <MealList recipes={this.state.recipes} className="recipe" />
-                ) : (
-                    this.state.hasSearched && (
-                        <p className="no-results">No results found. Please try another search.</p>
-                    )
-                )}
+        return (
+            <div className="page-container">
+                <Navbar className="recipe" />
+                <SearchBar
+                    onSearch={(query) => {
+                        this.setState({ searchQuery: query, hasSearched: true }, () => this.fetchRecipes(query));
+                    }} // Pass query directly to fetchRecipes
+                    className="recipe"
+                />
+                
+                <div className="content">
+                    {loading ? (
+                        <p className="loading-message">Loading the recipes.....</p> // Show loading message during API call
+                    ) : error ? (
+                        <p className="error-message">{error}</p> // Show error message if API fails
+                    ) : hasSearched && recipes.length > 0 ? (
+                        <MealList recipes={recipes} className="recipe" />
+                    ) : hasSearched ? (
+                        <p className="no-results">No recipes found. Please try another search.</p>
+                    ) : null}
+                </div>
+                
+                <Footer className="home" />
             </div>
-            
-            <Footer className="home" />
-        </div>
-    );
-}
-
+        );
+    }
 }
