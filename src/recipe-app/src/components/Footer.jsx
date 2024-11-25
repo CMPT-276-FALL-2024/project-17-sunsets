@@ -16,10 +16,11 @@ function Footer({className}) {
         <a href="#Recipe">Recipe</a>
         <a href="#Favorites">Favorites</a>
         <a href="#MealPlanner">Meal Planner</a>
+        <a href="#Tutorials">Tutorials</a>
       </div> 
       
       <div className={`${className}-copyright`}>
-        <p>&copy; 2024 IAT 276 Team 17 Sunset</p>
+        <p>&copy; 2024 CMPT 276 Team 17 Sunset</p>
       </div>
     </footer>
   );
