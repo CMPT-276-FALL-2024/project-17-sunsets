@@ -16,7 +16,7 @@ const FavoritePage = () => {
       {/* You might want to use your search component here Chaitanya  */}
       <SearchBar className="recipe" />   
 
-      <div className="favorite-content">
+      <div className="youtube-content">
         
       </div>
 
