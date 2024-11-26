@@ -1,5 +1,6 @@
 // components/FavoriteContent.jsx
 import React from "react";
+import NoImageAvailable from '../assets/images/No_Image_Available.jpg';
 
 const FavoriteContent = ({ savedRecipes, handleClick, handleUnsaveRecipe }) => {
   return (
@@ -15,7 +16,7 @@ const FavoriteContent = ({ savedRecipes, handleClick, handleUnsaveRecipe }) => {
               onClick={() => handleClick(recipe)}
             >
               <div className="home-meal-img">
-                <img src={recipe.image} alt={recipe.title} />
+                <img src={recipe.image || NoImageAvailable} alt={recipe.title} />
               </div>
               <div className="home-meal-name">
                 <button
