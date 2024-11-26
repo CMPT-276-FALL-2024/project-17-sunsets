@@ -44,7 +44,6 @@ export default class Recipes extends Component {
             }
         }
     };
-
     render() {
         const { recipes, hasSearched, error, loading } = this.state;
 

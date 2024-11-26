@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { processRecipeInfo, processSaveRecipe, processLoadSavedRecipes, processDeleteRecipe } from '../RecipeController.jsx';
 import '../styles/SingleRecipePage.css'
+import NoImageAvailable from '../assets/images/No_Image_Available.jpg';
+
 
 const RecipeDetails = () => {
     const { recipeId } = useParams();
@@ -69,7 +71,7 @@ const RecipeDetails = () => {
                 <div className="recipe-main">
                     <div className="home-meal-item">
                         <div className="home-meal-img">
-                            <img src={recipe.image} alt={recipe.title} />
+                            <img src={recipe.image || NoImageAvailable} alt={recipe.title} />
                         </div>
                         <div className="home-meal-name">
                             <button className="home-btn" onClick={handleSaveRecipe}><i className={saved ? 'fas fa-heart' : 'far fa-heart'}></i></button>

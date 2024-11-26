@@ -1,4 +1,3 @@
-// Recipes.jsx
 import React, { useState, useEffect } from 'react';
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
@@ -12,12 +11,14 @@ import { useNavigate } from 'react-router-dom';
 
 const FavoritePage = () => {
   const [savedRecipes, setSavedRecipes] = useState([]);
+  const [originalRecipes, setOriginalRecipes] = useState([]); // Preserve original list for resetting search
   const navigate = useNavigate();
 
   useEffect(() => {
     const loadSavedRecipes = async () => {
       const loadedRecipes = await processLoadSavedRecipes();
       setSavedRecipes(loadedRecipes);
+      setOriginalRecipes(loadedRecipes); // Keep a backup of the full list
     };
     loadSavedRecipes();
   }, []);
@@ -25,6 +26,7 @@ const FavoritePage = () => {
   const handleUnsaveRecipe = (recipe) => {
     const updatedRecipes = savedRecipes.filter(savedRecipe => savedRecipe.id !== recipe.id);
     setSavedRecipes(updatedRecipes); 
+    setOriginalRecipes(updatedRecipes); // Update the backup list
     processDeleteRecipe(recipe);
     alert("Recipe Unfavorited");
   };
@@ -33,10 +35,21 @@ const FavoritePage = () => {
     navigate(`/recipe/${recipe.id}`);
   };
 
+  const handleSearch = (query) => {
+    if (!query) {
+      setSavedRecipes(originalRecipes); // Reset to original list if the query is empty
+    } else {
+      const filteredRecipes = originalRecipes.filter(recipe =>
+        recipe.title.toLowerCase().includes(query.toLowerCase()) // Check if title contains the query
+      );
+      setSavedRecipes(filteredRecipes);
+    }
+  };
+
   return (
     <div className="page-container">
       <Navbar className="favorite" />
-      <SearchBar className="recipe" />
+      <SearchBar className="recipe" onSearch={handleSearch} /> {/* Pass the handler */}
       <FavoriteContent
         savedRecipes={savedRecipes}
         handleClick={handleClick}

@@ -7,6 +7,7 @@ import MealList from '../components/MealList.jsx';
 import Footer from '../components/Footer.jsx';
 import { getRandomEggRecipes, processRandomRecipes } from '../RecipeController';
 import '../styles/HomePage.css';
+import '../styles/RecipePage.css';
 
 function HomePage() {
   const [recipes, setRecipes] = useState([]);
