@@ -25,7 +25,8 @@ const FavoritePage = () => {
   const handleUnsaveRecipe = (recipe) => {
     const updatedRecipes = savedRecipes.filter(savedRecipe => savedRecipe.id !== recipe.id);
     setSavedRecipes(updatedRecipes); 
-    processDeleteRecipe(recipe); 
+    processDeleteRecipe(recipe);
+    alert("Recipe Unfavorited");
   };
 
   const handleClick = (recipe) => {

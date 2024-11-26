@@ -100,3 +100,13 @@ export const deleteSavedRecipe = (recipe) =>{
         console.error('Error deleting saved recipe', err);
     }
 }
+
+export const getRandomRecipes = async () => {
+    try {
+        const res = await axios.get(`${API_URL}/random?apiKey=${API_KEY}&number=3`);
+        return res.data.recipes;
+    } catch (err) {
+        console.error('Error getting random recipes', err);
+        throw new Error('Internal server error');
+    }
+};
