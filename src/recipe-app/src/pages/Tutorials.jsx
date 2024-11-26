@@ -4,7 +4,7 @@ import Footer from "../components/Footer"; // Footer for consistency
 import YouTubeVideoSearchBar from "../YouTubeVideoSearchBar.jsx"; // Search bar component
 import YouTubeView from "../YouTubeView.jsx"; // Video results component
 import SearchBar from "../components/Recipe_SearchBar.jsx";
-import { fetchSavedVideos,addVideoToSaved,deleteVideoFromSaved} from "../YouTubeController.jsx"
+import {fetchSavedVideos,addVideoToSaved,deleteVideoFromSaved} from "../YouTubeController.jsx"
 import '../styles/Tutorials.css';
 import "../styles/RecipePage.css";
 import "../styles/HomePage.css";
