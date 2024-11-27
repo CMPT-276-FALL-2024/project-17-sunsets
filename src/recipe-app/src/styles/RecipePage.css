@@ -49,7 +49,11 @@ body {
     font-weight: 500;
     transition: 0.4s ease;
     margin: 10px;
-    padding: 0.2rem;
+    padding: 0rem 0.5rem; /* Reduced padding to make hover effect closer */
+    text-align: center;
+    display: flex; /* Use flexbox */
+    align-items: center; /* Vertically center text */
+    justify-content: center; /* Horizontally center text */
 }
 
 .recipe-navdiv a:hover,
@@ -59,13 +63,32 @@ body {
     border-radius: 20%;
 }
 
-.recipe-profile-icon {
+.home-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    color: #FFD700; /* Golden color for the logo text */
+  }
+  
+  .home-logo a {
     font-size: 1.5rem;
-    color: #fff;
-    cursor: pointer;
-    padding-top: 0.5rem;
-    margin-left: auto;
-}
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  
+  .home-logo span {
+    color: #f6f3f3; /* Use a subtle secondary color for contrast */
+  }
+  
+  /* Hover effect */
+  .home-logo a:hover {
+    color: #4B3621; /* Dark brown text color on hover */
+    transition: color 0.3s ease;
+  }
 
 /* Search Bar Styling */
 .recipe-search {
@@ -75,7 +98,7 @@ body {
     background-color: white;
     padding: 10px 15px;
     border: 1px solid #ccc;
-    margin-top: 50px;
+    margin-top: 55px;
 }
 
 .recipe-search-container {

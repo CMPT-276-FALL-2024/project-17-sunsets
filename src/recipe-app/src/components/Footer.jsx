@@ -1,6 +1,7 @@
 // components/Footer.jsx
 import React from 'react';
 
+
 function Footer({className}) {
   return (
     <footer className={`${className}-footer`}>
@@ -12,11 +13,11 @@ function Footer({className}) {
       </div>
       
       <div className={`${className}-nav-footer`}>
-        <a href="#home">Home</a>
-        <a href="#Recipe">Recipe</a>
-        <a href="#Favorites">Favorites</a>
-        <a href="#MealPlanner">Meal Planner</a>
-        <a href="#Tutorials">Tutorials</a>
+        <a href="/">Home</a>
+        <a href="/recipes">Recipe</a>
+        <a href="/favorites">Favorites</a>
+        <a href="/tutorials">Tutorials</a>
+
       </div> 
       
       <div className={`${className}-copyright`}>
