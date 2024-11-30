@@ -5,27 +5,26 @@ import {
     deleteVideoFromSaved,
   } from './YouTubeController';
   import * as YouTubeModel from './YouTubeModel';
+  import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
   
-  jest.mock('./YouTubeModel', () => ({
-    fetchYouTubeVideos: jest.fn(),
-    getSavedVideos: jest.fn(),
-    saveVideo: jest.fn(),
-    removeVideo: jest.fn(),
+  vi.mock('./YouTubeModel', () => ({
+    fetchYouTubeVideos: vi.fn(),
+    getSavedVideos: vi.fn(),
+    saveVideo: vi.fn(),
+    removeVideo: vi.fn(),
   }));
   
   describe('YouTubeController Tests', () => {
     beforeEach(() => {
-      jest.spyOn(console, 'error').mockImplementation(() => {}); // Suppress console.error
+      vi.spyOn(console, 'error').mockImplementation(() => {}); // Suppress console.error
     });
   
     afterEach(() => {
       console.error.mockRestore(); // Restore console.error
-      jest.clearAllMocks();
+      vi.clearAllMocks();
     });
   
-    // Test for processYouTubeVideos function
-    // Expect: Calls fetchYouTubeVideos and returns processed video data
-    test('processYouTubeVideos fetches and processes video data', async () => {
+    it('processYouTubeVideos fetches and processes video data', async () => {
       const mockData = [
         {
           id: { videoId: 'abc123' },
@@ -44,9 +43,7 @@ import {
       expect(YouTubeModel.fetchYouTubeVideos).toHaveBeenCalledWith('pasta');
     });
   
-    // Test for fetchSavedVideos function
-    // Expect: Calls getSavedVideos and returns saved videos
-    test('fetchSavedVideos returns saved videos', () => {
+    it('fetchSavedVideos returns saved videos', () => {
       const mockSavedVideos = [{ id: 'abc123', title: 'Saved Video' }];
       YouTubeModel.getSavedVideos.mockReturnValue(mockSavedVideos);
   
@@ -54,17 +51,13 @@ import {
       expect(result).toEqual(mockSavedVideos);
     });
   
-    // Test for addVideoToSaved function
-    // Expect: Calls saveVideo with the given video
-    test('addVideoToSaved saves a video', () => {
+    it('addVideoToSaved saves a video', () => {
       const video = { id: 'abc123', title: 'New Video' };
       addVideoToSaved(video);
       expect(YouTubeModel.saveVideo).toHaveBeenCalledWith(video);
     });
   
-    // Test for deleteVideoFromSaved function
-    // Expect: Calls removeVideo with the video ID
-    test('deleteVideoFromSaved deletes a video by ID', () => {
+    it('deleteVideoFromSaved deletes a video by ID', () => {
       deleteVideoFromSaved('abc123');
       expect(YouTubeModel.removeVideo).toHaveBeenCalledWith('abc123');
     });
