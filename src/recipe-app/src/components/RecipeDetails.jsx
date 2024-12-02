@@ -81,12 +81,12 @@ const RecipeDetails = () => {
                     
                     <div className="recipe-section directions">
                         <h2>Instructions:</h2>
-                        <div className="instructions-content">
-                            {recipe.instructions.split(/<li>|<\/li>/).map((step, index) => (
-                                step && <p key={index}>{step}</p>
-                            ))}
-                        </div>
+                        <div
+                            className="instructions-content"
+                            dangerouslySetInnerHTML={{ __html: recipe.instructions || "No instructions available." }}
+                        ></div>
                     </div>
+
                 </div>
 
                 <div className="recipe-aside">
@@ -109,7 +109,7 @@ const RecipeDetails = () => {
                         <h2>Nutrition Facts</h2>
                         <ul>
                             {recipe.nutrition?.nutrients ? (
-                                recipe.nutrition.nutrients.slice(0, 15).map((nutrient, index) => (
+                                recipe.nutrition.nutrients.slice(0, 10).map((nutrient, index) => (
                                     <li key={index}>
                                         {nutrient.name}: {nutrient.amount} {nutrient.unit} ({nutrient.percentOfDailyNeeds}% of daily needs)
                                     </li>
