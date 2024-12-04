@@ -65,9 +65,10 @@ const Tutorials = () => {
               allowFullScreen
             ></iframe>
           ) : (
-            <p>Select a video to play</p>
+            <p></p>
           )}
         </div>
+
 
         {/* Video Search Results */}
         <YouTubeView

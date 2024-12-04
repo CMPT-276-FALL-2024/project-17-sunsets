@@ -2,7 +2,7 @@ import React from "react";
 
 const YouTubeView = ({ videos, onPlay, onSave, onAddToPlaylist }) => {
   if (videos.length === 0) {
-    return <p>No videos found. Try searching for something else!</p>;
+    return <p></p>;
   }
 
   return (
