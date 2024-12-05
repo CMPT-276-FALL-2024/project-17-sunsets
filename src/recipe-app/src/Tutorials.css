@@ -1,0 +1,261 @@
+/* Reset and Base Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.tutorials-navbar {
+    background-color: var(--tenne-tawny-dark);
+    padding: 0 5%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+.tutorials-menu-bar {
+    margin-top: 0.8rem;
+    margin-right: 1rem;
+    color: #f6f3f3;
+    cursor: pointer;
+}
+
+.tutorials-navdiv {
+    display: flex;
+    gap: 10px;
+}
+
+.tutorials-navdiv a {
+    font-size: 1rem;
+    color: #f6f3f3;
+    font-weight: 500;
+    transition: 0.4s ease;
+    margin: 10px;
+    padding: 0rem 0.5rem; /* Reduced padding to make hover effect closer */
+    text-align: center;
+    display: flex; /* Use flexbox */
+    align-items: center; /* Vertically center text */
+    justify-content: center; /* Horizontally center text */
+}
+
+.tutorials-navdiv a:hover,
+.tutorials-navdiv a.tutorials-active {
+    background-color: #FFD700; /* Yellow background for active and hover states */
+    color: #4B3621; /* Dark brown text on hover */
+    border-radius: 20%;
+}
+
+.home-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    color: #FFD700; /* Golden color for the logo text */
+  }
+  
+.home-logo a {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+  
+  
+.home-logo span {
+    color: #f6f3f3; /* Use a subtle secondary color for contrast */
+}
+  
+  /* Hover effect */
+.home-logo a:hover {
+    color: #4B3621; /* Dark brown text color on hover */
+    transition: color 0.3s ease;
+}
+
+/* Footer Styling */
+.tutorials-footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+/* Search Bar Styling */
+.youtube-search-bar {
+    padding: 12px;
+    width: 100%; /* Adjust to desired length */
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin-top: 20px; /* Top and horizontal margin */
+}
+
+.youtube-search-bar input {
+    padding: 12px;
+    width: 60%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.youtube-search-bar input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+.youtube-search-bar button {
+    padding: 12px 18px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.youtube-search-bar button:hover {
+    background-color: #0056b3;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Video Player Section */
+.video-player-section {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.video-player-section iframe {
+    width: 80%;
+    height: 400px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Video Results Section */
+.youtube-view {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px;
+    border: 2px solid #ccc; /* Add border */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    padding: 20px; /* Add padding inside the border */
+    background-color: #f9f9f9; /* Optional: Add background color for contrast */
+}
+
+.video-item {
+    width: 200px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.video-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.video-item h4 {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.video-item button {
+    margin: 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.video-item button:hover {
+    background-color: #0056b3;
+}
+
+/* Saved Videos Section */
+.saved-videos-section {
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    max-width: 600px;
+  }
+  
+  .saved-videos-section h3 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .saved-videos-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .saved-video-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .saved-video-item:last-child {
+    border-bottom: none;
+  }
+  
+  .saved-video-title a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .saved-video-title a:hover {
+    text-decoration: underline;
+  }
+  
+  .remove-video-button {
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .remove-video-button:hover {
+    background-color: #d9363e;
+  }
+  

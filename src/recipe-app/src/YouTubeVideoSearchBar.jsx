@@ -24,6 +24,7 @@ const YouTubeVideoSearchBar = ({ onSearchResults }) => {
 
   return (
     <div className="youtube-search-bar">
+      <h2>Search your video</h2>
       <input
         type="text"
         value={query}

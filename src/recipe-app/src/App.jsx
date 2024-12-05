@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 function App() {
 
   return(
-    <Router>
+    <Router basename="/project-17-sunsets">
       <Routes>
         <Route path = '/' element = {<Home/>}></Route>
         <Route path = "/recipes" element={<Recipes/>}></Route>
