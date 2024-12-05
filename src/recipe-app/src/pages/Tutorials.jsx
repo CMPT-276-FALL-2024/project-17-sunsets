@@ -1,34 +1,18 @@
-/**
- * Tutorials Page Component
- * 
- * This component provides functionality to search, play, save, and remove YouTube videos,
- * as well as a placeholder for recipe search. It uses `YouTubeVideoSearchBar` for YouTube
- * searches, `YouTubeView` for displaying search results, and local storage to manage saved videos.
- * The page includes navigation (`Navbar`), a footer (`Footer`), and search functionalities for 
- * both recipes and YouTube videos.
- */
-
 import React, { useState, useEffect } from "react";
-import Navbar from "../components/Navbar"; 
-import Footer from "../components/Footer"; 
-import YouTubeVideoSearchBar from "../YouTubeVideoSearchBar.jsx"; 
-import YouTubeView from "../YouTubeView.jsx";
+import Navbar from "../components/Navbar"; // Navbar for navigation
+import Footer from "../components/Footer"; // Footer for consistency
+import YouTubeVideoSearchBar from "../YouTubeVideoSearchBar.jsx"; // Search bar component
+import YouTubeView from "../YouTubeView.jsx"; // Video results component
 import SearchBar from "../components/Recipe_SearchBar.jsx";
 import {fetchSavedVideos,addVideoToSaved,deleteVideoFromSaved} from "../YouTubeController.jsx"
 import '../styles/Tutorials.css';
-import "../styles/RecipePage.css";
-import "../styles/HomePage.css";
-import "../styles/FavoritePage.css";
 
 const Tutorials = () => {
   const [videos, setVideos] = useState([]); // Search results
   const [currentVideo, setCurrentVideo] = useState(""); // Currently playing video
   const [savedVideos, setSavedVideos] = useState([]); // Saved videos
 
-   /**
-   * Effect to load saved videos when the component mounts.
-   * Uses the `fetchSavedVideos` function from `YouTubeController` to get data from local storage.
-   */
+  // Load saved videos from the controller when the component mounts
   useEffect(() => {
     try {
       setSavedVideos(fetchSavedVideos()); // Fetch saved videos on mount
@@ -38,10 +22,7 @@ const Tutorials = () => {
     }
   }, []);
 
-  /**
-   * Handles playing a video.
-   * @param {string} videoId - The ID of the YouTube video to play.
-   */
+  // Play a video
   const handlePlay = (videoId) => {
     setCurrentVideo(videoId);
   };
@@ -54,12 +35,7 @@ const Tutorials = () => {
     setSavedVideos(fetchSavedVideos()); // Refresh state
   };
 
-  /**
-   * Handles saving a video.
-   * Adds the video to local storage and updates the `savedVideos` state.
-   * @param {string} name - The name of the video.
-   * @param {string} id - The ID of the video.
-   */
+  // Remove a video
   const handleRemove = (videoId) => {
     deleteVideoFromSaved(videoId); // Delegate to controller
     setSavedVideos(fetchSavedVideos()); // Refresh state
