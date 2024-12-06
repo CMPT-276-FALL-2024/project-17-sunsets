@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: CI/ CD Pipeline
 
 on:
   push:
@@ -25,14 +25,24 @@ jobs:
         working-directory: src/recipe-app # Explicitly set working directory (package.json not in root)
         run: npm install  # Installs dependencies from the package.json in specified directory
 
-      # Step 4: Run tests placeholder
+      # Step 4: Run tests
       - name: Run tests
         working-directory: src/recipe-app # Explicitly set working directory
         run: npm test #run test
 
-      # Step 5: Build and Deploy to GitHub Pages
-      - name: Build and Deploy
-        working-directory: src/recipe-app # Explicitly set working directory (package.json not in root)
+       # Step 5: Setup Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      # Step 6: Upload artifact
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: 'src/recipe-app/dist/'
+
+      # Step 7: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Required for gh-pages
-        run: npm run deploy
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
