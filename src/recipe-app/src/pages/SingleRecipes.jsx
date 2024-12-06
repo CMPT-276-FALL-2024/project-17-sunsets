@@ -7,9 +7,8 @@ import RecipeDetails from "../components/RecipeDetails.jsx";
 import "../styles/RecipePage.css";
 
 const SingleRecipe = () => {
-  const navigate = useNavigate(); // Initialize navigate for routing
+  const navigate = useNavigate();
 
-  // Function to handle search from the SearchBar
   const handleSearch = (query) => {
     // Redirect to the Recipes page with the search query as a parameter
     navigate(`/recipes?search=${encodeURIComponent(query)}`);

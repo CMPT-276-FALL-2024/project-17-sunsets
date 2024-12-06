@@ -20,7 +20,7 @@ function SearchBar({ className, onSearch }) {
                 <input
                     type="text"
                     className={`${className}-input`}
-                    placeholder="Search"
+                    placeholder="Search Recipes..."
                     value={query}
                     onChange={handleInputChange}
                 />

@@ -1,3 +1,11 @@
+/**
+ * Recipes Component
+ * 
+ * This component displays a list of recipes based on the user's search input.
+ * It handles fetching recipe data from an API and displaying search results.
+ * The component includes a navigation bar, search bar, recipe list, and footer.
+ */
+
 import React, { Component } from 'react';
 import Navbar from '../components/Navbar.jsx';
 import SearchBar from '../components/Recipe_SearchBar.jsx';
@@ -18,8 +26,12 @@ export default class Recipes extends Component {
         };
     }
 
+    /**
+     * Lifecycle Method: componentDidMount
+     * 
+     * Retrieves the initial search query from the URL if present and fetches recipes.
+     */
     componentDidMount() {
-        // Retrieve initial search query from the URL (if any)
         const urlParams = new URLSearchParams(window.location.search);
         const searchQuery = urlParams.get('search') || '';
         if (searchQuery) {
@@ -27,6 +39,11 @@ export default class Recipes extends Component {
         }
     }
 
+    /**
+     * Fetches recipes based on the search query using an API call.
+     * 
+     * @param {string} query - The search query entered by the user.
+     */
     fetchRecipes = async (query) => {
         if (query) {
             this.setState({ loading: true, error: null }); // Set loading state before API call

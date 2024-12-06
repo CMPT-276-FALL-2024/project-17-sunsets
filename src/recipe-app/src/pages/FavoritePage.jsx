@@ -1,3 +1,12 @@
+/**
+ * FavoritePage Component
+ * 
+ * This component displays the user's favorite recipes. It allows users to search 
+ * for recipes within their saved list, view detailed information about a recipe,
+ * and remove recipes from their favorites. It also handles navigation between 
+ * the favorite page and the recipe detail page.
+ */
+
 import React, { useState, useEffect } from 'react';
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
@@ -23,6 +32,11 @@ const FavoritePage = () => {
     loadSavedRecipes();
   }, []);
 
+  /**
+   * Remove a recipe from the list of saved recipes.
+   * 
+   * @param {Object} recipe - The recipe object to be removed.
+   */
   const handleUnsaveRecipe = (recipe) => {
     const updatedRecipes = savedRecipes.filter(savedRecipe => savedRecipe.id !== recipe.id);
     setSavedRecipes(updatedRecipes); 
@@ -31,10 +45,20 @@ const FavoritePage = () => {
     alert("Recipe Unfavorited");
   };
 
+  /**
+   * Navigate to the recipe detail page when a recipe is clicked.
+   * 
+   * @param {Object} recipe - The recipe object to view details for.
+   */
   const handleClick = (recipe) => {
     navigate(`/recipe/${recipe.id}`);
   };
 
+  /**
+   * Filter the saved recipes based on a search query.
+   * 
+   * @param {string} query - The search query entered by the user.
+   */
   const handleSearch = (query) => {
     if (!query) {
       setSavedRecipes(originalRecipes); // Reset to original list if the query is empty
@@ -49,7 +73,7 @@ const FavoritePage = () => {
   return (
     <div className="page-container">
       <Navbar className="favorite" />
-      <SearchBar className="recipe" onSearch={handleSearch} /> {/* Pass the handler */}
+      <SearchBar className="recipe" onSearch={handleSearch} /> 
       <FavoriteContent
         savedRecipes={savedRecipes}
         handleClick={handleClick}
