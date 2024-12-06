@@ -10,6 +10,11 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+      pages: write
+      id-token: write # Required for `actions/deploy-pages`
+
     steps:
       # Step 1: Check out the code from the repository
       - uses: actions/checkout@v3
