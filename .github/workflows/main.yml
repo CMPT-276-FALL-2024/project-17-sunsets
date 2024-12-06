@@ -29,3 +29,10 @@ jobs:
       - name: Run tests
         working-directory: src/recipe-app # Explicitly set working directory
         run: npm test #run test
+
+      # Step 5: Build and Deploy to GitHub Pages
+      - name: Build and Deploy
+        working-directory: src/recipe-app # Explicitly set working directory (package.json not in root)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Required for gh-pages
+        run: npm run deploy
