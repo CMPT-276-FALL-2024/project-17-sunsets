@@ -15,8 +15,6 @@ jobs:
       pages: write
       id-token: write # Required for `actions/deploy-pages`
 
-    environment:
-      name: github-pages
 
     steps:
       # Step 1: Check out the code from the repository
@@ -38,19 +36,22 @@ jobs:
         working-directory: src/recipe-app # Explicitly set working directory
         run: npm test #run test
 
-       # Step 5: Setup Pages
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
+       # Step 5: Build the app
+      - name: Build the app
+        working-directory: src/recipe-app
+        run: npm run build
 
-      # Step 6: Upload artifact
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: 'src/recipe-app/dist/'
-
-      # Step 7: Deploy to GitHub Pages
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+      # Step 6: Deploy to `gh-pages`
+      - name: Deploy to gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git fetch origin
+          git switch gh-pages || git switch -C gh-pages
+          git rm -rf . # Remove old files
+          cp -r src/recipe-app/dist/* . # Copy built files to root
+          git add .
+          git commit -m "Deploy updated files to gh-pages"
+          git push origin gh-pages --force
