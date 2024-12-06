@@ -10,14 +10,6 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: read
-      pages: write
-      id-token: write # Required for `actions/deploy-pages`
-
-    environment:
-      name: github-pages # Correct environment name
-
     steps:
       # Step 1: Check out the code from the repository
       - uses: actions/checkout@v3
@@ -38,26 +30,4 @@ jobs:
         working-directory: src/recipe-app # Explicitly set working directory
         run: npm test #run test
 
-       # Step 5: Build the app
-      - name: Build the app
-        working-directory: src/recipe-app
-        run: npm run build
-
-       # Step 5: Setup Pages
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-
-      # Step 6: Upload artifact
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: 'src/recipe-app/dist/' # Adjust path for your build output
-
-      # Step 7: Deploy to GitHub Pages
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
-        with:
-          target-branch: gh-pages # Specify `gh-pages` branch for deployment
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
