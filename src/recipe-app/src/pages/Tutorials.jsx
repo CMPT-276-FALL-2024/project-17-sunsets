@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import YouTubeVideoSearchBar from "../YouTubeVideoSearchBar.jsx";
+import YouTubeVideoSearchBar from "../components/YouTubeVideoSearchBar.jsx";
 import YouTubeView from "../YouTubeView.jsx";
 import { fetchSavedVideos, addVideoToSaved, deleteVideoFromSaved } from "../YouTubeController.jsx";
 import "../styles/Tutorials.css";
@@ -14,7 +14,11 @@ const Tutorials = () => {
 
   useEffect(() => {
     try {
+      const loadedSavedVideos = fetchSavedVideos();
       setSavedVideos(fetchSavedVideos());
+      if (loadedSavedVideos.length > 0) {
+        setHasSearched(true);
+      }
     } catch (error) {
       console.error("Error fetching saved videos:", error);
       setSavedVideos([]);
@@ -29,14 +33,21 @@ const Tutorials = () => {
   // Save
   const handleSave = (name, id) => {
     const newVideo = { name, id };
+    const updatedVideos = fetchSavedVideos();
     addVideoToSaved(newVideo);
     setSavedVideos(fetchSavedVideos());
+    setHasSearched(true);
   };
 
   //Remove
   const handleRemove = (videoId) => {
     deleteVideoFromSaved(videoId);
-    setSavedVideos(fetchSavedVideos());
+    const updatedVideos = fetchSavedVideos();
+    setSavedVideos(updatedVideos); // Refresh saved videos state
+    // Hide content if no saved videos and no search results
+    if (updatedVideos.length === 0 && videos.length === 0) {
+      setHasSearched(false);
+    }
   };
 
 
@@ -69,6 +80,7 @@ const Tutorials = () => {
             videos={videos}
             onPlay={handlePlay}
             onSave={handleSave}
+            hasSearched={hasSearched}
           />
 
           {/* Saved Videos Section */}

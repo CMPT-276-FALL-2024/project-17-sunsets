@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { processYouTubeVideos } from "./YouTubeController.jsx";
+import { processYouTubeVideos } from "../YouTubeController.jsx";
 
 const YouTubeVideoSearchBar = ({ className, onSearchResults }) => {
   const [query, setQuery] = useState("");

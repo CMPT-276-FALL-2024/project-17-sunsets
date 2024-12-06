@@ -1,9 +1,10 @@
 import React from "react";
 
-const YouTubeView = ({ videos, onPlay, onSave }) => {
-  if (videos.length === 0) {
-    return <p>No videos found. Please search again!</p>;
-  }
+const YouTubeView = ({ videos, onPlay, onSave, hasSearched }) => {
+  
+  // if (hasSearched && videos.length === 0) {
+  //   return <p>No videos found. Please search again!</p>;
+  // }
 
   return (
     <div className="youtube-view">
